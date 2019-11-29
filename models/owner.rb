@@ -1,3 +1,5 @@
+require_relative('../db/sql_runner.rb')
+
 class Owner
 
 	attr_accessor :name, :address, :preference
