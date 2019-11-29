@@ -4,7 +4,7 @@ Animals
 
 name  | type  
 --|--
-id| SERIAL PRIMARY KEY  
+animal_id| SERIAL PRIMARY KEY  
 name  | VARCHAR  
 breed  | VARCHAR  
 trained  | BOOLEAN  
@@ -17,7 +17,7 @@ Owners
 
 name  | type  
 --|--
-id  | SERIAL PRIMARY KEY  
+owner_id  | SERIAL PRIMARY KEY  
 name  | VARCHAR  
 address  | VARCHAR
 preference  | VARCHAR  
@@ -113,5 +113,5 @@ Owner:
 > SELECT * FROM animals WHERE owner_id = $1
 >
 > Will need to loop through the owners and find all the animals with that owner_id
-> 
+>
 > Returns a map with Owner Name & Animal Name
