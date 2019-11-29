@@ -20,6 +20,26 @@ owner2 = Owner.new(owner2_details)
 owner1.save()
 owner2.save()
 
+animal1_details = {
+	"name" => "Ben",
+	"breed" => "Dog",
+	"trained" => true,
+	"admission_date" => Time.new(2019, "nov", 30),
+}
+
+animal2_details = {
+	"name" => "Shadow",
+	"breed" => "Dog",
+	"trained" => true,
+	"admission_date" => Time.new(2019, "nov", 30),
+}
+
+animal1 = Animal.new(animal1_details)
+animal2 = Animal.new(animal2_details)
+
+animal1.save()
+animal2.save()
+
 binding.pry
 
 nil
