@@ -5,6 +5,12 @@ class Animal
 	attr_accessor :name, :breed, :trained
 	attr_reader :admission_date, :animal_id, :owner_id
 	def initialize(options)
+		if options['trained'] == 't'
+			options['trained'] = true
+		elsif options['trained'] == 'f'
+			options['trained'] = false
+		end
+
 		@animal_id = options['animal_id'].to_i() if options['animal_id']
 		@name = options['name']
 		@breed = options['breed']
@@ -13,19 +19,22 @@ class Animal
 		@owner_id = options['owner_id'].to_i()
 	end
 
+	# works
 	def self.all()
 		sql = "SELECT * FROM animals"
 		result = SqlRunner.run(sql)
 		return result.map{|animal| self.new(animal)}
 	end
 
+	# works
 	def self.get_owner(owner)
 		sql = "SELECT * FROM animals WHERE owner_id = $1"
-		values = [owner.id]
+		values = [owner.owner_id]
 		result = SqlRunner.run(sql, values)
 		return result.map{|animal| self.new(animal)}
 	end
 
+	# works
 	def save()
 		sql = "INSERT INTO animals (name, breed, trained, admission_date, owner_id) VALUES ($1, $2, $3, $4, $5) RETURNING animal_id"
 		values = [@name, @breed, @trained, @admission_date, 1]

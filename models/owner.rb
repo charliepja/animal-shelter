@@ -14,7 +14,7 @@ class Owner
 	def self.all()
 		sql = "SELECT * FROM owners"
 		result = SqlRunner.run(sql)
-		return result.map{|owner| self.new(owener)}
+		return result.map{|owner| self.new(owner)}
 	end
 
 	def save()
