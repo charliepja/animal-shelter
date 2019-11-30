@@ -1,5 +1,5 @@
 require('pg')
-
+require_relative('../models/animal.rb')
 class SqlRunner
 
 	def self.run(sql, values=[])

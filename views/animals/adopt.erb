@@ -1,0 +1,29 @@
+<form action="/adopt" method="POST">
+	<select name="type">
+		<option selected disbaled value="">Type</option>
+		<option value="Dog">Dog</option>
+		<option value="Cat">Cat</option>
+	</select>
+	<select name="trained">
+		<option selected disbaled value="">Trained</option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<select name="sort">
+		<option selected disbaled value="">Sort</option>
+		<option value="1">Type</option>
+		<option value="2">Name</option>
+		<option value="3">Trained</option>
+		<option value="4">Admission Date</option>
+	</select>
+	<input type="submit" value="Filter">
+</form>
+
+<% for pet in @pets %>
+	<br />
+	<p>Name: <%= pet.name%></p>
+	<p>Breed: <%= pet.breed%></p>
+	<p>Trained: <%= pet.trained%></p>
+	<p>Admission Date: <%= pet.admission_date%></p>
+	<br />
+<% end %>
