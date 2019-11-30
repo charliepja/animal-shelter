@@ -1,6 +1,10 @@
 require_relative('../models/animal.rb')
 require_relative('../db/sql_runner.rb')
 
+get '/volunteer/animal/index' do
+	@pets = Animal.all()
+	erb(:"animals/index")
+end
 
 get '/adopt' do
 	@pets = Animal.all()
@@ -14,7 +18,7 @@ post '/adopt' do
 	# SELECT * from animals WHERE breed = 'Dog' AND trained = true ORDER BY name;
 
 	# TO DO: Need to figure out how to change string to table Name
-	
+
 	if filter_type.length > 0 && params[:trained].length > 0 && params[:sort].length > 0
 		if params[:trained] == 'yes'
 			filter_trained = true

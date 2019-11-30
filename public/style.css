@@ -48,6 +48,26 @@ footer li {
 	align-self: center;
 }
 
+.tables {
+	display: flex;
+	justify-content: center;
+}
+
+.show, .show th, .show td {
+	color: white;
+	border: 3px solid #008080;
+	border-collapse: collapse;
+}
+
+.show {
+	width: 50%;
+	margin: 1%;
+}
+.show th, .show td {
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
 .img {
 	display: flex;
 	align-content: center;

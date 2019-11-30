@@ -1,0 +1,19 @@
+<div class="tables">
+	<table class="show">
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Admission Date</th>
+		</tr>
+
+		<% for pet in @pets %>
+			<tr>
+				<td><%= pet.name %></td>
+				<td><%= pet.breed %></td>
+				<td><%= pet.admission_date %></td>
+			</tr>
+
+		<% end %>
+
+	</table>
+</div>
