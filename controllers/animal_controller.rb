@@ -6,6 +6,12 @@ get '/volunteer/animal/index' do
 	erb(:"animals/index")
 end
 
+get '/volunteer/animal/:id/edit' do
+	pet_id = params[:id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	erb(:"animals/show")
+end
+
 get '/adopt' do
 	@pets = Animal.all()
 	erb(:"animals/adopt")

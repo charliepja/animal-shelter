@@ -2,8 +2,8 @@ require_relative('../db/sql_runner.rb')
 
 class Animal
 
-	attr_accessor :name, :breed, :trained
-	attr_reader :admission_date, :animal_id, :owner_id
+	attr_accessor :name, :breed, :trained, :owner_id
+	attr_reader :admission_date, :animal_id
 	def initialize(options)
 		if options['trained'] == 't'
 			options['trained'] = true
@@ -24,6 +24,13 @@ class Animal
 		sql = "SELECT * FROM animals"
 		result = SqlRunner.run(sql)
 		return result.map{|animal| self.new(animal)}
+	end
+
+	def self.find_by_id(id)
+		sql = "SELECT * FROM animals WHERE animal_id = $1"
+		values = [id]
+		result = SqlRunner.run(sql, values)
+		return self.new(result[0])
 	end
 
 	# works

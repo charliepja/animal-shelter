@@ -1,8 +1,29 @@
-<% for pet in @pets %>
+<p>Name: <%= @pet.name%></p>
+<p>Breed: <%= @pet.breed%></p>
+<p>Trained: <%= @pet.trained%></p>
+<p>Admission Date: <%= @pet.admission_date%></p>
+
+<form action="">
+
+	<label for="name">Pet Name:</label>
+	<input type="text" id="name" name="name">
 	<br />
-	<p>Name: <%= pet.name%></p>
-	<p>Breed: <%= pet.breed%></p>
-	<p>Trained: <%= pet.trained%></p>
-	<p>Admission Date: <%= pet.admission_date%></p>
 	<br />
-<% end %>
+	<label for="breed">Pet Breed:</label>
+	<input type="text" id="breed" name="breed">
+	<br />
+	<br />
+	<label for="trained">Pet Trained:</label>
+	<select name="trained" id="trained">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<br />
+	<label for="owner">Owner:</label>
+	<input type="number" id="owner" name="owner_id">
+	<br />
+	<br />
+	<input type="submit" value="Update">
+</form>
