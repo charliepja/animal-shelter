@@ -23,6 +23,18 @@ get '/volunteer/animal/:id/edit' do
 end
 
 # UPDATE
+post '/volunteer/animal/:id' do
+	pet_id = params[:animal_id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	@pet.name = params['name'] if params['name'].empty? == false
+	@pet.breed = params['breed'] if params['breed'].empty? == false
+	@pet.trained = params['trained'] if params['trained'].empty? == false
+	@pet.owner_id = params['owner_id'].to_i() if params['owner_id'].empty? == false
+
+	@pet.update()
+
+	redirect "/volunteer/animal/#{pet_id}"
+end
 
 # PUBLIC VIEW INDEX
 get '/adopt' do

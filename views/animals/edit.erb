@@ -5,6 +5,10 @@
 
 <form action="/volunteer/animal/:id" method="POST">
 
+	<label for="animal_id">Animal ID:</label>
+
+	<input type="text" id="animal_id" name="animal_id" value= " <%= @pet.animal_id %> ">
+
 	<label for="name">Pet Name:</label>
 	<input type="text" id="name" name="name">
 	<br />
