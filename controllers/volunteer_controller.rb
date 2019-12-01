@@ -38,6 +38,7 @@ end
 get '/volunteer/animal/:id/edit' do
 	pet_id = params[:id].to_i()
 	@pet = Animal.find_by_id(pet_id)
+	@training = @pet.view_training()
 	erb(:"volunteers/animals/edit", :layout => :volunteer)
 end
 

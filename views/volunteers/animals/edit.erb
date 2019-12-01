@@ -31,3 +31,78 @@
 	<br />
 	<input type="submit" value="Update">
 </form>
+<br />
+<h3>Training Plan</h3>
+<p>Training Plan</p>
+<table>
+	<tr>
+		<th>Toilet Trained</th>
+		<th>Sit</th>
+		<th>Stay</th>
+		<th>Come</th>
+		<th>Heel</th>
+		<th>Down</th>
+		<th>Socialised</th>
+	</tr>
+	<tr>
+		<td> <%= @training.toilet_trained %> </td>
+		<td> <%= @training.sit %> </td>
+		<td> <%= @training.stay %> </td>
+		<td> <%= @training.come %> </td>
+		<td> <%= @training.heel %> </td>
+		<td> <%= @training.down %> </td>
+		<td> <%= @training.socialised %> </td>
+	</tr>
+</table>
+<br />
+<form action="">
+	<label for="toilet">Toilet Trained:</label>
+	<select name="toilet" id="toilet_trained">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<label for="sit">Sit:</label>
+	<select name="sit" id="sit">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<label for="stay">Stay:</label>
+	<select name="stay" id="stay">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<label for="come">Come:</label>
+	<select name="come" id="come">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<label for="heel">Heel:</label>
+	<select name="heel" id="heel">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<label for="down">Down:</label>
+	<select name="down" id="down">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+	<label for="socialised">Socialised:</label>
+	<select name="socialised" id="socialised">
+		<option selected disbaled value=""></option>
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	</select>
+	<br />
+</form>
