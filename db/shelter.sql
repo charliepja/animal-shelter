@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS training;
 DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS owners;
 

@@ -59,6 +59,7 @@ class Animal
 		values = [@name, @breed, @trained, @admission_date, 1]
 		result = SqlRunner.run(sql, values)
 		@animal_id = result[0]['animal_id']
+		add_training()
 	end
 
 	def can_adopt(answer)

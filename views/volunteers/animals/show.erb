@@ -2,3 +2,25 @@
 <p>Breed: <%= @pet.breed%></p>
 <p>Trained: <%= @pet.trained%></p>
 <p>Admission Date: <%= @pet.admission_date%></p>
+<br />
+<p>Training Plan</p>
+<table>
+	<tr>
+		<th>Toilet Trained</th>
+		<th>Sit</th>
+		<th>Stay</th>
+		<th>Come</th>
+		<th>Heel</th>
+		<th>Down</th>
+		<th>Socialised</th>
+	</tr>
+	<tr>
+		<td> <%= @training.toilet_trained %> </td>
+		<td> <%= @training.sit %> </td>
+		<td> <%= @training.stay %> </td>
+		<td> <%= @training.come %> </td>
+		<td> <%= @training.heel %> </td>
+		<td> <%= @training.down %> </td>
+		<td> <%= @training.socialised %> </td>
+	</tr>
+</table>
