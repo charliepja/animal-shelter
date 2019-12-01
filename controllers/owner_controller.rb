@@ -59,9 +59,14 @@ end
 # DESTROY
 
 get '/volunteer/owner/:id/delete' do
-
+	owner_id = params[:id].to_i()
+	@owner = Owner.find(owner_id)
+	erb(:"owners/delete")
 end
 
-delete '/volunteer/owner/index' do
+delete '/volunteer/owner/:id' do
+	owner_id = params["id"].to_i()
+	Owner.delete_by_id(owner_id)
 
+	redirect "/volunteer/owner/index"
 end

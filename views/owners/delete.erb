@@ -1,0 +1,9 @@
+<p>Animal ID: <%= @owner.owner_id %></p>
+<p>Name: <%= @owner.name %></p>
+<p>Address: <%= @owner.address %></p>
+<p>Preference: <%= @owner.preference %></p>
+
+<form action="/volunteer/owner/ <%= @owner.owner_id %> " method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="submit" value="Delete Owner?">
+</form>
