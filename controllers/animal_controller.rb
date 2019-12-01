@@ -52,8 +52,17 @@ end
 
 # DESTROY
 
-delete '' do
+get '/volunteer/animal/:id/delete' do
+	pet_id = params[:id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	erb(:"animals/destroy")
+end
 
+delete '/volunteer/animal/:id' do
+	pet_id = params[:id].to_i()
+	Animal.delete_by_id(pet_id)
+
+	redirect "/volunteer/animal/index"
 end
 
 # PUBLIC VIEW INDEX

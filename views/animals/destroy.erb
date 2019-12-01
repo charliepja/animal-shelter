@@ -1,0 +1,8 @@
+<p>Animal ID: <%= @pet.animal_id %></p>
+<p>Name: <%= @pet.name %></p>
+<p>Breed: <%= @pet.breed %></p>
+
+<form action="/volunteer/animal/ <%= @pet.animal_id %> " method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="submit" value="Delete Animal?">
+</form>

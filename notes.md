@@ -135,8 +135,8 @@ DELETE {DELETE} | DESTROY | DELETE
 REST | Include?
 -- | --
 INDEX  | YES
-NEW  | NO
-CREATE  | NO  
+NEW  | YES
+CREATE  | YES  
 SHOW  | YES
 EDIT  | YES  
 UPDATE  | YES  
