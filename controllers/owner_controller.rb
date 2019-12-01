@@ -37,13 +37,23 @@ end
 # EDIT
 
 get '/volunteer/owner/:id/edit' do
-
+	owner_id = params[:id].to_i()
+	@owner = Owner.find(owner_id)
+	erb(:"owners/edit")
 end
 
 # UPDATE
 
 post '/volunteer/owner/:id' do
+	owner_id = params["owner_id"].to_i()
+	@owner = Owner.find(owner_id)
+	@owner.name = params["name"] if (params["name"] && params["name"].empty? == false)
+	@owner.address = params["address"] if (params["address"] && params["address"].empty? == false)
+	@owner.preference = params["preference"] if (params["preference"] && params["preference"].empty? == false)
 
+	@owner.update()
+
+	redirect "/volunteer/owner/#{owner_id}"
 end
 
 # DESTROY

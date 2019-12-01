@@ -1,0 +1,29 @@
+
+<p>Name: <%= @owner.name %> </p>
+
+<p>Address: <%= @owner.address %> </p>
+
+<p>Preference: <%= @owner.preference %> </p>
+
+<form action="/volunteer/owner/<%= @owner.owner_id %>" method="POST">
+
+	<input type="hidden" name="owner_id" value="<%= @owner.owner_id %>">
+	<label for="name">Name:</label>
+	<input type="text" id="name" name="name">
+
+	<label for="address">Address:</label>
+	<input type="text" id="address" name="address">
+
+	<label for="preference">Preference:</label>
+	<select name="preference" id="preference">
+
+		<option selected disabled value="<% @owner.preference %>">
+		</option>
+		<option value="Dog">Dog</option>
+		<option value="Cat">Cat</option>
+		<option value="All">All</option>
+	</select>
+
+	<input type="submit" value="Update">
+
+</form>
