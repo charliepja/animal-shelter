@@ -8,6 +8,20 @@ get '/volunteer/animal/index' do
 	erb(:"animals/index")
 end
 
+# NEW
+
+get '/volunteer/animal/new' do
+	erb(:"animals/new")
+end
+
+# CREATE
+
+post '/volunteer/animal/index' do
+	new_pet = Animal.new(params)
+	new_pet.save()
+	redirect "/volunteer/animal/index"
+end
+
 # SHOW
 get '/volunteer/animal/:id' do
 	pet_id = params[:id].to_i()
@@ -34,6 +48,12 @@ post '/volunteer/animal/:id' do
 	@pet.update()
 
 	redirect "/volunteer/animal/#{pet_id}"
+end
+
+# DESTROY
+
+delete '' do
+
 end
 
 # PUBLIC VIEW INDEX

@@ -1,0 +1,27 @@
+<h3>Add New Pet</h3>
+
+<form action="/volunteer/animal/index" method="POST">
+	<label for="animal-name">Name:</label>
+	<input type="text" id="animal-name" name="name">
+
+	<label for="animal-breed">Breed:</label>
+	<select name="breed" id="animal-breed">
+		<option selected disabled value=""></option>
+		<option value="Dog">Dog</option>
+		<option value="Cat">Cat</option>
+	</select>
+
+	<label for="trained">Adoptable:</label>
+	<label for="Yes">Yes</label>
+	<input type="radio" id="Yes" name="trained" value="t">
+	<label for="No">No</label>
+	<input type="radio" id="No" name="trained" value="f">
+
+	<label for="date">Admission Date:</label>
+	<input type="date" id="date" name="admission_date">
+
+	<label for="owner">Owner:</label>
+	<input type="number" id="owner" name="owner_id">
+
+	<input type="submit" value="Add">
+</form>

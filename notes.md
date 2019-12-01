@@ -115,3 +115,42 @@ Owner:
 > Will need to loop through the owners and find all the animals with that owner_id
 >
 > Returns a map with Owner Name & Animal Name
+
+---
+
+### 7 RESTful Route
+
+SQL| REST | HTTP
+--|--| --
+READ {SELECT}  | INDEX | GET  
+READ {SELECT} | NEW | GET
+CREATE {INSERT} | CREATE | POST
+READ {SELECT} | SHOW | GET
+READ {SELECT} | EDIT | GET
+UPDATE {UPDATE} | UPDATE | PUT
+DELETE {DELETE} | DESTROY | DELETE
+
+##### Animals
+
+REST | Include?
+-- | --
+INDEX  | YES
+NEW  | NO
+CREATE  | NO  
+SHOW  | YES
+EDIT  | YES  
+UPDATE  | YES  
+DESTROY  | NO  
+
+
+##### Owners
+
+REST | Include?
+-- | --
+INDEX  | YES
+NEW  | NO
+CREATE  | NO  
+SHOW  | NO  
+EDIT  | NO  
+UPDATE  | NO  
+DESTROY  | NO  
