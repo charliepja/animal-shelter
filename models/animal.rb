@@ -1,10 +1,5 @@
 require_relative('../db/sql_runner.rb')
 
-# CREATE: save()
-# READ: all(), find_by_id()
-# UPDATE: update()
-# DELETE: delete_all(), delete_by_id(), delete()
-
 class Animal
 
 	attr_accessor :name, :breed, :trained, :owner_id
@@ -46,6 +41,17 @@ class Animal
 		return result.map{|animal| self.new(animal)}
 	end
 
+	def self.delete_all()
+		sql = "DELETE FROM animals"
+		SqlRunner.run(sql)
+	end
+
+	def self.delete_by_id(id)
+		sql = "DELETE FROM animals WHERE animal_id = $1"
+		values = [id]
+		SqlRunner.run(sql, values)
+	end
+
 	# works
 	def save()
 		sql = "INSERT INTO animals (name, breed, trained, admission_date, owner_id) VALUES ($1, $2, $3, $4, $5) RETURNING animal_id"
@@ -70,6 +76,12 @@ class Animal
 	def update()
 		sql = "UPDATE animals SET (name, breed, trained, owner_id) = ($1, $2, $3, $4) WHERE animal_id = $5"
 		values = [@name, @breed, @trained, @owner_id, @animal_id]
+		SqlRunner.run(sql, values)
+	end
+
+	def delete()
+		sql = "DELETE FROM animals WHERE animal_id = $1"
+		values = [@animal_id]
 		SqlRunner.run(sql, values)
 	end
 
