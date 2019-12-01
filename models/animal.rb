@@ -1,3 +1,4 @@
+require_relative('training.rb')
 require_relative('../db/sql_runner.rb')
 
 class Animal
@@ -83,6 +84,22 @@ class Animal
 		sql = "DELETE FROM animals WHERE animal_id = $1"
 		values = [@animal_id]
 		SqlRunner.run(sql, values)
+	end
+
+	def add_training()
+		Training.save(@animal_id)
+	end
+
+	def view_training()
+		Training.find(@animal_id)
+	end
+
+	def update_training(set, value)
+		Training.update(@animal_id, set, value)
+	end
+
+	def delete_training()
+		Training.delete(@animal_id)
 	end
 
 end
