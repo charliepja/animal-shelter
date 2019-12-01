@@ -76,3 +76,9 @@ end
 get '/waiting' do
 	erb(:"owners/waiting")
 end
+
+post '/waiting' do
+	@new_owner = Owner.new(params)
+	@new_owner.save()
+	erb(:"owners/joined")
+end
