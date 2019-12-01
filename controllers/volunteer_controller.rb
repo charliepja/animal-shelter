@@ -46,12 +46,20 @@ end
 post '/volunteer/animal/:id' do
 	pet_id = params[:animal_id].to_i()
 	@pet = Animal.find_by_id(pet_id)
-	@pet.name = params['name'] if params['name'].empty? == false
-	@pet.breed = params['breed'] if params['breed'].empty? == false
-	@pet.trained = params['trained'] if params['trained'].empty? == false
-	@pet.owner_id = params['owner_id'].to_i() if params['owner_id'].empty? == false
 
-	@pet.update()
+	params.each{|key, value|
+		if key.start_with?("pet")
+			if value.empty? == false && key != "animal_id"
+				key_array = key.split("__")
+				@pet.single_update(key_array[1], value)
+			end
+		elsif key.start_with?("train")
+			if value.empty? == false && key != "animal_id"
+				key_array = key.split("__")
+				@pet.update_single_train(key_array[1], value)
+			end
+		end
+	}
 
 	redirect "/volunteer/animal/#{pet_id}"
 end

@@ -81,6 +81,23 @@ class Animal
 		SqlRunner.run(sql, values)
 	end
 
+	def single_update(var, val)
+		case var
+		when "name"
+			@name = "#{val}"
+		when "breed"
+			@breed = "#{val}"
+		when "trained"
+			@trained = true if "#{val}" == "yes"
+			@trained = false if "#{val}" == "no"
+		when "owner_id"
+			@owner_id = "#{val}".to_i()
+		else
+			return
+		end
+		update()
+	end
+
 	def delete()
 		sql = "DELETE FROM animals WHERE animal_id = $1"
 		values = [@animal_id]
@@ -93,6 +110,37 @@ class Animal
 
 	def view_training()
 		Training.find(@animal_id)
+	end
+
+	def update_single_train(var, val)
+		p var
+		p val
+		if val == 'yes'
+			b_val = true
+		elsif val == 'no'
+			b_val = false
+		else
+			return
+		end
+
+		case var
+		when "toilet_trained"
+			update_training("toilet_trained", b_val)
+		when "sit"
+			update_training("sit", b_val)
+		when "stay"
+			update_training("stay", b_val)
+		when "come"
+			update_training("come", b_val)
+		when "heel"
+			update_training("heel", b_val)
+		when "down"
+			update_training("down", b_val)
+		when "socialised"
+			update_training("socialised", b_val)
+		else
+			return
+		end
 	end
 
 	def update_training(set, value)

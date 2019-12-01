@@ -33,8 +33,8 @@ class Training
 
 	# UPDATE
 	def self.update(animal_id, set, value)
-		sql = "UPDATE training SET $1 = $2 WHERE animal_id = $3"
-		values = [set, value, animal_id]
+		sql = "UPDATE training SET #{set} = $1 WHERE animal_id = $2"
+		values = [value, animal_id]
 		SqlRunner.run(sql, values)
 	end
 

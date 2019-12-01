@@ -10,15 +10,15 @@
 	<input type="text" id="animal_id" name="animal_id" value= " <%= @pet.animal_id %> ">
 
 	<label for="name">Pet Name:</label>
-	<input type="text" id="name" name="name">
+	<input type="text" id="name" name="pet__name">
 	<br />
 	<br />
 	<label for="breed">Pet Breed:</label>
-	<input type="text" id="breed" name="breed">
+	<input type="text" id="breed" name="pet__breed">
 	<br />
 	<br />
 	<label for="trained">Pet Trained:</label>
-	<select name="trained" id="trained">
+	<select name="pet__trained" id="trained">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
@@ -26,7 +26,7 @@
 	<br />
 	<br />
 	<label for="owner">Owner:</label>
-	<input type="number" id="owner" name="owner_id">
+	<input type="number" id="owner" name="pet__owner_id">
 	<br />
 	<br />
 	<input type="submit" value="Update">
@@ -55,54 +55,57 @@
 	</tr>
 </table>
 <br />
-<form action="">
+<form action="/volunteer/animal/:id" method="POST">
+
+	<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
 	<label for="toilet">Toilet Trained:</label>
-	<select name="toilet" id="toilet_trained">
+	<select id="toilet" name="train__toilet_trained">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
 	<label for="sit">Sit:</label>
-	<select name="sit" id="sit">
+	<select id="sit" name="train__sit">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
 	<label for="stay">Stay:</label>
-	<select name="stay" id="stay">
+	<select id="stay" name="train__stay">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
 	<label for="come">Come:</label>
-	<select name="come" id="come">
+	<select id="come" name="train__come">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
 	<label for="heel">Heel:</label>
-	<select name="heel" id="heel">
+	<select id="heel" name="train__heel">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
 	<label for="down">Down:</label>
-	<select name="down" id="down">
+	<select id="down" name="train__down">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
 	<label for="socialised">Socialised:</label>
-	<select name="socialised" id="socialised">
+	<select id="socialised" name="train__socialised">
 		<option selected disbaled value=""></option>
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
 	<br />
+	<input type="submit" value="Update">
 </form>
