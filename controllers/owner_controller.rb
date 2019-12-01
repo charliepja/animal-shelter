@@ -18,10 +18,12 @@ end
 
 # CREATE
 
-# post '/volunteer/owner/index' do
-# 	new_owner = Owner.new(params)
-# 	new_owner.save()
-# end
+post '/volunteer/owner/index' do
+	new_owner = Owner.new(params)
+	new_owner.save()
+
+	redirect "/volunteer/owner/index"
+end
 
 # SHOW
 
