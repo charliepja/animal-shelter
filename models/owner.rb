@@ -37,6 +37,24 @@ class Owner
 		return pets_and_owner
 	end
 
+	def self.find(id)
+		sql = "SELECT * FROM owners WHERE owner_id = $1"
+		values = [id]
+		result = SqlRunner.run(sql, values)
+		return self.new(result[0])
+	end
+
+	def self.delete_all()
+		sql = "DELETE FROM owners"
+		SqlRunner.run(sql)
+	end
+
+	def self.delete_by_id(id)
+		sql = "DELETE FROM owners WHERE owner_id = $1"
+		values = [id]
+		SqlRunner.run(sql, values)
+	end
+
 	def save()
 		sql = "INSERT INTO owners (name, address, preference) VALUES ($1, $2, $3) RETURNING owner_id"
 		values = [@name, @address, @preference]
@@ -53,6 +71,18 @@ class Owner
 		values = [@owner_id]
 		results = SqlRunner.run(sql, values)
 		return results.map{|pet| Animal.new(pet)}
+	end
+
+	def update()
+		sql = "UPDATE owners SET (name, address, preference) = ($1, $2, $3) WHERE owner_id = $4"
+		values = [@name, @address, @preference, @owner_id]
+		SqlRunner.run(sql, values)
+	end
+
+	def delete()
+		sql = "DELETE FROM owners WHERE owner_id = $1"
+		values = [@owner_id]
+		SqlRunner.run(sql, values)
 	end
 
 end

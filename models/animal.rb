@@ -1,5 +1,10 @@
 require_relative('../db/sql_runner.rb')
 
+# CREATE: save()
+# READ: all(), find_by_id()
+# UPDATE: update()
+# DELETE: delete_all(), delete_by_id(), delete()
+
 class Animal
 
 	attr_accessor :name, :breed, :trained, :owner_id
