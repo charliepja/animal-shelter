@@ -1,0 +1,18 @@
+<% for owner in @owners %>
+
+<p>Owner ID: <%= owner.owner_id %></p>
+<p>Owner Name: <%= owner.name %></p>
+<table class="show">
+	<tr>
+		<th>Name</th>
+	</tr>
+
+	<% for pet in @pets["#{owner.owner_id}"][:pets] %>
+		<tr>
+			<td><%= pet %></td>
+		</tr>
+
+	<% end %>
+
+	</table>
+<% end %>
