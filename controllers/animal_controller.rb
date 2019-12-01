@@ -1,22 +1,36 @@
 require_relative('../models/animal.rb')
 require_relative('../db/sql_runner.rb')
 
+
+# INDEX
 get '/volunteer/animal/index' do
 	@pets = Animal.all()
 	erb(:"animals/index")
 end
 
-get '/volunteer/animal/:id/edit' do
+# SHOW
+get '/volunteer/animal/:id' do
 	pet_id = params[:id].to_i()
 	@pet = Animal.find_by_id(pet_id)
 	erb(:"animals/show")
 end
 
+# EDIT
+get '/volunteer/animal/:id/edit' do
+	pet_id = params[:id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	erb(:"animals/edit")
+end
+
+# UPDATE
+
+# PUBLIC VIEW INDEX
 get '/adopt' do
 	@pets = Animal.all()
 	erb(:"animals/adopt")
 end
 
+# PUBLIC VIEW INDEX SORT BY
 post '/adopt' do
 	filter_type = params[:type]
 

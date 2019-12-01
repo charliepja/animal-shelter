@@ -1,5 +1,6 @@
 body {
 	background-color: #41B3A3;
+	min-height: 100%;
 }
 
 nav {
@@ -34,6 +35,9 @@ a {
 
 footer {
 	display: flex;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	justify-content: center;
 	align-content: center;
 	width: 100%;
