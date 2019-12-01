@@ -1,0 +1,19 @@
+<p>Name: <%= @owner.name %> </p>
+<p>Address: <%= @owner.address %> </p>
+<p>Preference: <%= @owner.preference %> </p>
+<p>Pets:</p>
+<table class="show">
+	<tr>
+		<th>Name</th>
+		<th>Breed</th>
+	</tr>
+
+
+	<% for pet in @pets %>
+		<tr>
+			<td><%= pet.name %></td>
+			<td><%= pet.breed %></td>
+		</tr>
+	<% end %>
+
+</table>

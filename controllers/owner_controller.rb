@@ -28,7 +28,10 @@ end
 # SHOW
 
 get '/volunteer/owner/:id' do
-
+	owner_id = params[:id].to_i()
+	@owner = Owner.find(owner_id)
+	@pets = @owner.get_pets()
+	erb(:"owners/show")
 end
 
 # EDIT
