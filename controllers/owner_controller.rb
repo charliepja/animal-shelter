@@ -70,3 +70,9 @@ delete '/volunteer/owner/:id' do
 
 	redirect "/volunteer/owner/index"
 end
+
+# PUBLIC JOIN WAITING LIST
+
+get '/waiting' do
+	erb(:"owners/waiting")
+end
