@@ -21,3 +21,17 @@ end
 get '/faq' do
 	erb(:faq)
 end
+
+get '/contact' do
+	time_now = Time.now()
+	if time_now.hour > 16 || time_now.hour < 9
+		@open_status = "Closed"
+	elsif time_now.hour > 8 && time_now.hour < 17
+		@open_status = "Opened"
+	end
+	erb(:contact)
+end
+
+get '/donate' do
+	erb(:donate)
+end
