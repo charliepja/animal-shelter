@@ -17,17 +17,19 @@
 			</ul>
 		</nav>
 
-			<main>
+			<main class="parent">
 				<%= yield %>
 			</main>
 
-		<footer>
-			<ul>
-				<li><a href="/faq">FAQ</a></li>
-				<li><a href="/contact">Contact Us</a></li>
-				<li><a href="/donate">Donate</a></li>
-				<li><a href="/">Public View</a></li>
-			</ul>
-		</footer>
+		<div id="child">
+			<footer id="footer">
+				<ul>
+					<li><a href="/faq">FAQ</a></li>
+					<li><a href="/contact">Contact Us</a></li>
+					<li><a href="/donate">Donate</a></li>
+					<li><a href="/">Public View</a></li>
+				</ul>
+			</footer>
+		</div>
 </body>
 </html>
