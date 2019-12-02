@@ -82,9 +82,14 @@ end
 # INDEX
 
 get '/volunteer/owner/index' do
-	@owners = Owner.all()
+	@owners = Owner.current_owners()
 	@pets = Owner.all_pets()
 	erb(:"volunteers/owners/index", :layout => :volunteer)
+end
+
+get '/volunteer/owner/index/filter' do
+	@owners = Owner.waiting_list()
+	erb(:"volunteers/owners/indexf", :layout => :volunteer)
 end
 
 

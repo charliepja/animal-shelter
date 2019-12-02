@@ -1,0 +1,7 @@
+<h3 class="header">Current Waiting List</h3>
+
+<% for owner in @owners %>
+	<br />
+	<p>Name: <%= owner.name %></p>
+	<p>Preference: <%= owner.preference %></p>
+<% end %>

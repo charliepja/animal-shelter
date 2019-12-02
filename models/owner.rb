@@ -55,6 +55,20 @@ class Owner
 		SqlRunner.run(sql, values)
 	end
 
+	def self.waiting_list()
+		sql = "SELECT * FROM owners WHERE waiting_list = $1"
+		values = [true]
+		result = SqlRunner.run(sql, values)
+		return result.map{|owner| self.new(owner)}
+	end
+
+	def self.current_owners()
+		sql = "SELECT * FROM owners WHERE waiting_list = $1"
+		values = [false]
+		result = SqlRunner.run(sql, values)
+		return result.map{|owner| self.new(owner)}
+	end
+
 	def save()
 		sql = "INSERT INTO owners (name, address, preference) VALUES ($1, $2, $3) RETURNING owner_id"
 		values = [@name, @address, @preference]

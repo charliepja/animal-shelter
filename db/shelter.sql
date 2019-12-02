@@ -6,7 +6,8 @@ CREATE TABLE owners (
 	owner_id SERIAL PRIMARY KEY,
 	name VARCHAR,
 	address VARCHAR,
-	preference VARCHAR
+	preference VARCHAR,
+	waiting_list BOOLEAN DEFAULT true
 );
 
 CREATE TABLE animals (
@@ -43,8 +44,8 @@ CREATE TABLE adoption_process (
 	vet_check BOOLEAN,
 	vet_check_date DATE,
 	take_home BOOLEAN,
-	take_home_date DATE
+	take_home_date DATE,
 	animal_id INT REFERENCES animals(animal_id) ON DELETE CASCADE
 );
 
-INSERT INTO owners (name, address, preference) VALUES ('Shelter', 'Shelter Address', 'All');
+INSERT INTO owners (name, address, preference, waiting_list) VALUES ('Shelter', 'Shelter Address', 'All', false);
