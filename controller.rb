@@ -35,3 +35,7 @@ end
 get '/donate' do
 	erb(:donate)
 end
+
+post '/donate' do
+	erb(:thankyou)
+end
