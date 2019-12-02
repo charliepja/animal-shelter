@@ -80,6 +80,30 @@ a {
 	align-self: center;
 }
 
+.gallery {
+	display: flex;
+	justify-content: space-around;
+}
+
+.individual {
+	display: flex;
+	flex-flow: column;
+	flex-wrap: wrap;
+}
+
+.petimg {
+	margin-top: 100px;
+	width: 250px;
+	height: 250px;
+	background-color: black;
+}
+
+.individual p {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
 .tables {
 	display: flex;
 	justify-content: center;
