@@ -12,7 +12,9 @@ CREATE TABLE owners (
 CREATE TABLE animals (
 	animal_id SERIAL PRIMARY KEY,
 	name VARCHAR,
+	type VARCHAR,
 	breed VARCHAR,
+	microchip INT,
 	trained BOOLEAN,
 	admission_date DATE,
 	owner_id INT DEFAULT 1 REFERENCES owners(owner_id) ON DELETE SET DEFAULT
@@ -27,6 +29,21 @@ CREATE TABLE training (
 	heel BOOLEAN DEFAULT false,
 	down BOOLEAN DEFAULT false,
 	socialised BOOLEAN DEFAULT false,
+	animal_id INT REFERENCES animals(animal_id) ON DELETE CASCADE
+);
+
+CREATE TABLE adoption_process (
+	adoption_id SERIAL PRIMARY KEY,
+	initial_interview BOOLEAN,
+	initial_interview_date DATE,
+	meet_greet BOOLEAN,
+	meet_greet_date DATE,
+	home_visit BOOLEAN,
+	home_visit_date DATE,
+	vet_check BOOLEAN,
+	vet_check_date DATE,
+	take_home BOOLEAN,
+	take_home_date DATE
 	animal_id INT REFERENCES animals(animal_id) ON DELETE CASCADE
 );
 
