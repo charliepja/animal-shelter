@@ -3,10 +3,12 @@ require('sinatra/contrib/all')
 require('pry')
 also_reload('./models/*')
 also_reload('./views/*')
+also_reload('./public/*')
 
-require_relative('./controllers/animal_controller.rb')
-require_relative('./controllers/owner_controller.rb')
-require_relative('./controllers/volunteer_controller.rb')
+require_relative('./controllers/public/animal_controller.rb')
+require_relative('./controllers/volunteer/animal_controller.rb')
+require_relative('./controllers/public/owner_controller.rb')
+require_relative('./controllers/volunteer/owner_controller.rb')
 
 get '/' do
 
@@ -15,11 +17,11 @@ get '/' do
 end
 
 get '/about' do
-	erb(:about)
+	erb(:"public/about")
 end
 
 get '/faq' do
-	erb(:faq)
+	erb(:"public/faq")
 end
 
 get '/contact' do
@@ -29,13 +31,13 @@ get '/contact' do
 	elsif time_now.hour > 8 && time_now.hour < 17
 		@open_status = "Opened"
 	end
-	erb(:contact)
+	erb(:"public/contact")
 end
 
 get '/donate' do
-	erb(:donate)
+	erb(:"public/donate")
 end
 
 post '/donate' do
-	erb(:thankyou)
+	erb(:"public/thankyou")
 end
