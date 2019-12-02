@@ -11,6 +11,9 @@
 				<td><%= pet.name %></td>
 				<td><%= pet.breed %></td>
 				<td><%= pet.admission_date %></td>
+				<td id="hidetable"><form action="/volunteer/animal/<%= pet.animal_id %>/edit" method="GET">
+					<input type="submit" value="Edit Pet">
+				</form></td>
 			</tr>
 
 		<% end %>
