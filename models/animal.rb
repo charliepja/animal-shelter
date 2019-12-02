@@ -104,6 +104,62 @@ class Animal
 		SqlRunner.run(sql, values)
 	end
 
+	def self.filter(options, sort="")
+		for option in options
+			if option.empty?
+				options.delete(option)
+			end
+		end
+
+		for option in options
+			if option == "yes"
+				options.delete(option)
+				options.push(true)
+			elsif option == "no"
+				options.delete(option)
+				options.push(false)
+			end
+		end
+
+		if options.count == 2
+			sql_where = "SELECT * FROM animals WHERE breed = $1 AND trained = $2"
+		elsif options.count == 1
+			if options[0] == true || options[0] == false
+				sql_where = "SELECT * FROM animals WHERE trained = $1"
+			else
+				sql_where = "SELECT * FROM animals WHERE breed = $1"
+			end
+		end
+
+		if sort.empty? == false
+			case sort
+			when "type"
+				sql_order = "ORDER BY breed"
+			when "name"
+				sql_order = "ORDER BY name"
+			when "trained"
+				sql_order = "ORDER BY trained"
+			when "admission_date"
+				sql_order = "ORDER BY admission_date"
+			else
+				return
+			end
+		end
+
+		if sql_where && sql_order
+			sql = sql_where + " "+ sql_order
+		elsif (sql_where && sql_where.length > 0)
+			sql = sql_where
+		elsif (sql_order && sql_order.length > 0)
+			sql = "SELECT * FROM animals " + sql_order
+		else
+			return
+		end
+
+		result = SqlRunner.run(sql, options)
+		return result.map{|animal| self.new(animal)}
+	end
+
 	def add_training()
 		Training.save(@animal_id)
 	end
