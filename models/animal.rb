@@ -1,4 +1,5 @@
 require_relative('training.rb')
+require_relative('adoption.rb')
 require_relative('../db/sql_runner.rb')
 
 class Animal
@@ -60,6 +61,14 @@ class Animal
 		result = SqlRunner.run(sql, values)
 		@animal_id = result[0]['animal_id']
 		add_training()
+	end
+
+	def start_adoption()
+		Adoption.save(@animal_id)
+	end
+
+	def adopt_progress()
+		Adoption.progress(@animal_id)
 	end
 
 	def can_adopt(answer)

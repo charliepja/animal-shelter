@@ -42,6 +42,18 @@ get '/volunteer/animal/:id/edit' do
 	erb(:"volunteers/animals/edit", :layout => :volunteer)
 end
 
+get '/volunteer/animal/:id/edit/adoption' do
+	pet_id = params[:id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	@pet.start_adoption()
+	@adopt = @pet.adopt_progress
+	erb(:"volunteers/animals/adoption", :layout => :volunteer)
+end
+
+get '/volunteer/animal/:id/edit/training' do
+	erb(:"volunteers/animals/training", :layout => :volunteer)
+end
+
 # UPDATE
 post '/volunteer/animal/:id' do
 	pet_id = params[:animal_id].to_i()

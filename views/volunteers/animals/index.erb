@@ -14,6 +14,12 @@
 				<td id="hidetable"><form action="/volunteer/animal/<%= pet.animal_id %>/edit" method="GET">
 					<input type="submit" value="Edit Pet">
 				</form></td>
+				<td><form action="/volunteer/animal/<%= pet.animal_id %>/edit/adoption" method="GET">
+					<input type="submit" value="Start Adoption Process">
+				</form></td>
+				<td><form action="/volunteer/animal/<%= pet.animal_id %>/edit/training" method="GET">
+					<input type="submit" value="Update Training Program">
+				</form></td>
 			</tr>
 
 		<% end %>
