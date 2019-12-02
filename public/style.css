@@ -33,6 +33,22 @@ a {
 	text-decoration: none;
 }
 
+.header {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	color: white;
+}
+
+.paras {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-flow: column;
+	margin: auto;
+}
+
 .parent {
 	position: relative;
 	min-width: 100%;
