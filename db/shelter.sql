@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS training;
+DROP TABLE IF EXISTS adoption_process;
 DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS owners;
 
@@ -35,17 +36,17 @@ CREATE TABLE training (
 
 CREATE TABLE adoption_process (
 	adoption_id SERIAL PRIMARY KEY,
-	initial_interview BOOLEAN,
+	initial_interview BOOLEAN DEFAULT false,
 	initial_interview_date DATE,
-	meet_greet BOOLEAN,
+	meet_greet BOOLEAN DEFAULT false,
 	meet_greet_date DATE,
-	home_visit BOOLEAN,
+	home_visit BOOLEAN DEFAULT false,
 	home_visit_date DATE,
-	vet_check BOOLEAN,
+	vet_check BOOLEAN DEFAULT false,
 	vet_check_date DATE,
-	take_home BOOLEAN,
+	take_home BOOLEAN DEFAULT false,
 	take_home_date DATE,
-	animal_id INT REFERENCES animals(animal_id) ON DELETE CASCADE
+	animal_id INT UNIQUE REFERENCES animals(animal_id) ON DELETE CASCADE
 );
 
 INSERT INTO owners (name, address, preference, waiting_list) VALUES ('Shelter', 'Shelter Address', 'All', false);

@@ -45,8 +45,8 @@ end
 get '/volunteer/animal/:id/edit/adoption' do
 	pet_id = params[:id].to_i()
 	@pet = Animal.find_by_id(pet_id)
-	@pet.start_adoption()
 	@adopt = @pet.adopt_progress
+	p @adopt
 	erb(:"volunteers/animals/adoption", :layout => :volunteer)
 end
 
@@ -72,6 +72,15 @@ post '/volunteer/animal/:id' do
 			end
 		end
 	}
+
+	redirect "/volunteer/animal/#{pet_id}"
+end
+
+post '/volunteer/animal/:id/edit/adoption' do
+	pet_id = params[:id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	@pet.start_adoption()
+	@adopt = @pet.adopt_progress
 
 	redirect "/volunteer/animal/#{pet_id}"
 end
