@@ -76,8 +76,20 @@ post '/volunteer/animal/:id' do
 	redirect "/volunteer/animal/#{pet_id}"
 end
 
+put '/volunteer/animal/:id/edit/adoption' do
+	pet_id = params[:animal_id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	update_key = params.keys()
+	update_values = params.values()
+	p update_key[2]
+	p update_values[2]
+	@pet.update_adopt(update_key[2], update_values[2])
+
+	redirect "/volunteer/animal/#{pet_id}/edit/adoption"
+end
+
 post '/volunteer/animal/:id/edit/adoption' do
-	pet_id = params[:id].to_i()
+	pet_id = params[:animal_id].to_i()
 	@pet = Animal.find_by_id(pet_id)
 	@pet.start_adoption()
 	@adopt = @pet.adopt_progress

@@ -71,6 +71,10 @@ class Animal
 		Adoption.progress(@animal_id)
 	end
 
+	def update_adopt(key, value)
+		Adoption.single_update(@animal_id, key, value)
+	end
+
 	def can_adopt(answer)
 		sql = "UPDATE animals SET trained = $1 WHERE animal_id = $2"
 		values = [answer, @animal_id]

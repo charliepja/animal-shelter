@@ -31,8 +31,13 @@ class Adoption
 		values = [animal_id]
 		result = SqlRunner.run(sql, values)
 		adopt_result = self.new(result[0])
-		p adopt_result
 		return adopt_result
+	end
+
+	def self.single_update(animal_id, key, value)
+		sql = "UPDATE adoption_process SET #{key} = $1 WHERE animal_id = $2"
+		values = [value, animal_id]
+		SqlRunner.run(sql, values)
 	end
 
 end
