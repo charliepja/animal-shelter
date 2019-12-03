@@ -36,15 +36,15 @@ CREATE TABLE training (
 
 CREATE TABLE adoption_process (
 	adoption_id SERIAL PRIMARY KEY,
-	initial_interview BOOLEAN DEFAULT false,
+	initial_interview VARCHAR DEFAULT 'Not Set',
 	initial_interview_date DATE,
-	meet_greet BOOLEAN DEFAULT false,
+	meet_greet VARCHAR DEFAULT 'Not Set',
 	meet_greet_date DATE,
-	home_visit BOOLEAN DEFAULT false,
+	home_visit VARCHAR DEFAULT 'Not Set',
 	home_visit_date DATE,
-	vet_check BOOLEAN DEFAULT false,
+	vet_check VARCHAR DEFAULT 'Not Set',
 	vet_check_date DATE,
-	take_home BOOLEAN DEFAULT false,
+	take_home VARCHAR DEFAULT 'Not Set',
 	take_home_date DATE,
 	animal_id INT UNIQUE REFERENCES animals(animal_id) ON DELETE CASCADE
 );
