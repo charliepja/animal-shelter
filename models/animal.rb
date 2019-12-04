@@ -131,32 +131,27 @@ class Animal
 	end
 
 	def self.filter(options, sort="")
-		p options[0][1]
 		values = []
+		new_options = []
 		for option in options
-			if option[1].empty?
-				options.delete(option)
+			if option[1].empty? == false
+				new_options.push(option)
+				if option[1] == "yes"
+					values.push(true)
+				elsif option[1] == "no"
+					values.push(false)
+				else
+					values.push(option[1])
+				end
 			end
 		end
-
-		for option in options
-			if option[1] == "yes"
-				values.push(true)
-			elsif option[1] == "no"
-				values.push(false)
-			else
-				values.push(option[1])
-			end
-		end
-
-		p values
 
 		if values.count == 3
 			sql_where = "SELECT * FROM animals WHERE type = $1 AND breed = $2 AND trained = $3"
 		elsif values.count == 2
-			sql_where = "SELECT * FROM animals WHERE #{options[0][0]} = $1 AND #{options[1][0]} = $2"
+			sql_where = "SELECT * FROM animals WHERE #{new_options[0][0]} = $1 AND #{new_options[1][0]} = $2"
 		elsif values.count == 1
-			sql_where = "SELECT * FROM animals WHERE #{options[0][0]} = $1"
+			sql_where = "SELECT * FROM animals WHERE #{new_options[0][0]} = $1"
 		end
 
 		if sort.empty? == false

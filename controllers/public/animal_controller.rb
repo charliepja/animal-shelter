@@ -1,5 +1,4 @@
 require_relative('../../models/animal.rb')
-require_relative('../../db/sql_runner.rb')
 
 # PUBLIC VIEW INDEX
 get '/adopt' do
@@ -9,7 +8,12 @@ end
 
 # PUBLIC VIEW INDEX SORT BY
 post '/adopt/filtered' do
-	opt = [["type", params["type"]], ["breed", params["breed"]], ["trained", params["trained"]]]
+	p params
+	opt = [
+		["breed", "#{params["breed"]}"],
+		["type", "#{params["type"]}"],
+		["trained", "#{params["trained"]}"]
+	]
 	@pets = Animal.filter(opt, params["sort"])
 
 	erb(:"public/animals/adopt")

@@ -1,0 +1,118 @@
+<h3 class="header">Adoption Process: <%= @pet.name %></h3>
+<br />
+<br />
+
+<div class="adoptionParent">
+	<div class="adoption1"><p>Initial Interview</p></div>
+	<div class="adoption4"><p>Initial Interview Date</p></div>
+	<div class="adoption7"><p>Meet And Greet</p></div>
+	<div class="adoption10"><p>Meet And Greet Date</p></div>
+	<div class="adoption13"><p>Home Visit</p></div>
+	<div class="adoption16"><p>Home Visit Date</p></div>
+	<div class="adoption19"><p>Vet Check</p></div>
+	<div class="adoption22"><p>Vet Check Date</p></div>
+	<div class="adoption25"><p>Take Home</p></div>
+	<div class="adoption28"><p>Take Home Date</p></div>
+</div>
+
+<div class="adoptionParent">
+	<div class="adoption2"><p><%= @adopt.initial_interview %></p></div>
+	<div class="adoption5"><p><%= @adopt.initial_interview_date %></p></div>
+	<div class="adoption8"><p><%= @adopt.meet_greet %></p></div>
+	<div class="adoption11"><p><%= @adopt.meet_greet_date %></p></div>
+	<div class="adoption14"><p><%= @adopt.home_visit %></p></div>
+	<div class="adoption17"><p><%= @adopt.home_visit_date %></p></div>
+	<div class="adoption20"><p><%= @adopt.vet_check %></p></div>
+	<div class="adoption23"><p><%= @adopt.vet_check_date %></p></div>
+	<div class="adoption26"><p><%= @adopt.take_home %></p></div>
+	<div class="adoption29"><p><%= @adopt.take_home_date %></p></div>
+</div>
+
+<div class="adoptionParent">
+	<div class="adoption3"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<select name="initial_interview">
+			<option selected disbaled value=""></option>
+			<option value="Pass">Pass</option>
+			<option value="Fail">Fail</option>
+			<option value="Set">Set</option>
+		</select>
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption6"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<input type="date" name="initial_interview_date">
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption9"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<select name="meet_greet">
+			<option selected disbaled value=""></option>
+			<option value="Pass">Pass</option>
+			<option value="Fail">Fail</option>
+			<option value="Set">Set</option>
+		</select>
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption12"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<input type="date" name="meet_greet_date">
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption14"><p><%= @adopt.home_visit %></p></div>
+	<div class="adoption15"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<select name="home_visit">
+			<option selected disbaled value=""></option>
+			<option value="Pass">Pass</option>
+			<option value="Fail">Fail</option>
+			<option value="Set">Set</option>
+		</select>
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption18"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<input type="date" name="home_visit_date">
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption21"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<select name="vet_check">
+			<option selected disbaled value=""></option>
+			<option value="Pass">Pass</option>
+			<option value="Fail">Fail</option>
+			<option value="Set">Set</option>
+		</select>
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption24"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<input type="date" name="vet_check_date">
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption27"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<select name="take_home">
+			<option selected disbaled value=""></option>
+			<option value="Pass">Pass</option>
+			<option value="Fail">Fail</option>
+			<option value="Set">Set</option>
+		</select>
+		<input type="submit" value="Update">
+	</form></div>
+	<div class="adoption30"><form action="/volunteer/animal/:id/edit/adoption" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
+		<input type="date" name="take_home_date">
+		<input type="submit" value="Update">
+	</form></div>
+</div>
