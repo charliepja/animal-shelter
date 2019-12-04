@@ -4,7 +4,7 @@ require_relative('../db/sql_runner.rb')
 
 class Animal
 
-	attr_accessor :name, :breed, :trained, :owner_id, :type, :microchip
+	attr_accessor :name, :breed, :trained, :owner_id, :type, :microchip, :img_url
 	attr_reader :admission_date, :animal_id
 	def initialize(options)
 		if options['trained'] == 't'
@@ -59,8 +59,8 @@ class Animal
 
 	# works
 	def save()
-		sql = "INSERT INTO animals (name, breed, trained, admission_date, owner_id) VALUES ($1, $2, $3, $4, $5) RETURNING animal_id"
-		values = [@name, @breed, @trained, @admission_date, 1]
+		sql = "INSERT INTO animals (name, type, breed, microchip, trained, admission_date, img_url, owner_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING animal_id"
+		values = [@name, @type, @breed, @microchip, @trained, @admission_date, @img_url, 1]
 		result = SqlRunner.run(sql, values)
 		@animal_id = result[0]['animal_id']
 		add_training()

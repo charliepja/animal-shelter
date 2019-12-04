@@ -28,7 +28,7 @@
 	<% for pet in @pets %>
 		<div class="individual">
 			<div class="petimg">
-
+				<img src="<%= pet.img_url %>" alt="picture of <%= pet.breed %>" width="250", height="250">
 			</div>
 			<br />
 			<p>Name: <%= pet.name%></p>
