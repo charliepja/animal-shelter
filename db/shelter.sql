@@ -19,6 +19,7 @@ CREATE TABLE animals (
 	microchip INT UNIQUE,
 	trained BOOLEAN,
 	admission_date DATE,
+	img_url VARCHAR,
 	owner_id INT DEFAULT 1 REFERENCES owners(owner_id) ON DELETE SET DEFAULT
 );
 

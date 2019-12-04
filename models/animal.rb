@@ -20,6 +20,7 @@ class Animal
 		@microchip = options['microchip'].to_i()
 		@trained = options['trained']
 		@admission_date = options['admission_date']
+		@img_url = options['img_url']
 		@owner_id = options['owner_id'].to_i()
 	end
 

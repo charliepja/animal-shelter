@@ -27,6 +27,7 @@ animal1_details = {
 	"microchip" => 12345,
 	"trained" => true,
 	"admission_date" => Time.new(2019, "nov", 30),
+	"img_url" => "https://tinyurl.com/yb9h7huw"
 }
 
 animal2_details = {
@@ -36,6 +37,7 @@ animal2_details = {
 	"microchip" => 123456,
 	"trained" => true,
 	"admission_date" => Time.new(2019, "nov", 30),
+	"img_url" => "https://tinyurl.com/vuf8mhr"
 }
 
 animal1 = Animal.new(animal1_details)
