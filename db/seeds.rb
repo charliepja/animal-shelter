@@ -22,14 +22,18 @@ owner2.save()
 
 animal1_details = {
 	"name" => "Ben",
-	"breed" => "Dog",
+	"type" => "Dog",
+	"breed" => "border_collie",
+	"microchip" => 12345,
 	"trained" => true,
 	"admission_date" => Time.new(2019, "nov", 30),
 }
 
 animal2_details = {
 	"name" => "Shadow",
-	"breed" => "Dog",
+	"type" => "Dog",
+	"breed" => "husky",
+	"microchip" => 123456,
 	"trained" => true,
 	"admission_date" => Time.new(2019, "nov", 30),
 }

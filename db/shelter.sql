@@ -16,7 +16,7 @@ CREATE TABLE animals (
 	name VARCHAR,
 	type VARCHAR,
 	breed VARCHAR,
-	microchip INT,
+	microchip INT UNIQUE,
 	trained BOOLEAN,
 	admission_date DATE,
 	owner_id INT DEFAULT 1 REFERENCES owners(owner_id) ON DELETE SET DEFAULT

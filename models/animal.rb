@@ -4,7 +4,7 @@ require_relative('../db/sql_runner.rb')
 
 class Animal
 
-	attr_accessor :name, :breed, :trained, :owner_id
+	attr_accessor :name, :breed, :trained, :owner_id, :type, :microchip
 	attr_reader :admission_date, :animal_id
 	def initialize(options)
 		if options['trained'] == 't'
@@ -15,7 +15,9 @@ class Animal
 
 		@animal_id = options['animal_id'].to_i() if options['animal_id']
 		@name = options['name']
+		@type = options['type']
 		@breed = options['breed']
+		@microchip = options['microchip'].to_i()
 		@trained = options['trained']
 		@admission_date = options['admission_date']
 		@owner_id = options['owner_id'].to_i()
@@ -118,28 +120,32 @@ class Animal
 	end
 
 	def self.filter(options, sort="")
+		p options[0][1]
+		values = []
 		for option in options
-			if option.empty?
+			if option[1].empty?
 				options.delete(option)
 			end
 		end
 
 		for option in options
-			if option == "yes"
-				options.delete(option)
-				options.push(true)
-			elsif option == "no"
-				options.delete(option)
-				options.push(false)
+			if option[1] == "yes"
+				values.push(true)
+			elsif option[1] == "no"
+				values.push(false)
+			else
+				values.push(option[1])
 			end
 		end
 
-		if options.count == 3
+		p values
+
+		if values.count == 3
 			sql_where = "SELECT * FROM animals WHERE type = $1 AND breed = $2 AND trained = $3"
-		elsif options.count == 2
-			sql_where = "SELECT * FROM animals WHERE #{options[0]} = $1 AND #{options[1]} = $2"
-		elsif options.count == 1
-			sql_where = "SELECT * FROM animals WHERE #{options[0]} = $1"
+		elsif values.count == 2
+			sql_where = "SELECT * FROM animals WHERE #{options[0][0]} = $1 AND #{options[1][0]} = $2"
+		elsif values.count == 1
+			sql_where = "SELECT * FROM animals WHERE #{options[0][0]} = $1"
 		end
 
 		if sort.empty? == false
@@ -167,7 +173,7 @@ class Animal
 			return
 		end
 
-		result = SqlRunner.run(sql, options)
+		result = SqlRunner.run(sql, values)
 		return result.map{|animal| self.new(animal)}
 	end
 
