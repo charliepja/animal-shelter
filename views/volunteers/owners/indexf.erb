@@ -4,4 +4,7 @@
 	<br />
 	<p>Name: <%= owner.name %></p>
 	<p>Preference: <%= owner.preference %></p>
+	<form action="/volunteer/owner/<%=owner.owner_id%>/edit" method="GET">
+		<input type="submit" value="Edit">
+	</form>
 <% end %>
