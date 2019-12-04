@@ -9,7 +9,7 @@ end
 
 # PUBLIC VIEW INDEX SORT BY
 post '/adopt/filtered' do
-	opt = [params["type"], params["trained"]]
+	opt = [params["type"], params["breed"], params["trained"]]
 	@pets = Animal.filter(opt, params["sort"])
 
 	erb(:"public/animals/adopt")

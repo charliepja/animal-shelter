@@ -132,7 +132,7 @@ a {
 	justify-content: center;
 }
 
-.img > div {
+.para {
 	align-self: center;
 	color: white;
 	font-family: sans-serif;
@@ -140,7 +140,7 @@ a {
 	flex-flow: column;
 }
 
-.img > img {
+#homeimg {
 	width: 500px;
   height: 500px;
   margin: 2.3% 5%;

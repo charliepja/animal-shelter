@@ -134,14 +134,12 @@ class Animal
 			end
 		end
 
-		if options.count == 2
-			sql_where = "SELECT * FROM animals WHERE breed = $1 AND trained = $2"
+		if options.count == 3
+			sql_where = "SELECT * FROM animals WHERE type = $1 AND breed = $2 AND trained = $3"
+		elsif options.count == 2
+			sql_where = "SELECT * FROM animals WHERE #{options[0]} = $1 AND #{options[1]} = $2"
 		elsif options.count == 1
-			if options[0] == true || options[0] == false
-				sql_where = "SELECT * FROM animals WHERE trained = $1"
-			else
-				sql_where = "SELECT * FROM animals WHERE breed = $1"
-			end
+			sql_where = "SELECT * FROM animals WHERE #{options[0]} = $1"
 		end
 
 		if sort.empty? == false
