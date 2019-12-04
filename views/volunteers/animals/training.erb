@@ -25,11 +25,11 @@
 	</tr>
 </table>
 <br />
-<form action="/volunteer/animal/:id" method="POST">
+<form action="/volunteer/animal/:id/edit/training" method="POST">
 
 	<input type="hidden" name="animal_id" value="<%= @pet.animal_id %>">
 	<label for="toilet">Toilet Trained:</label>
-	<select id="toilet" name="train__toilet_trained">
+	<select id="toilet" name="toilet_trained">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>
@@ -37,7 +37,7 @@
 	</select>
 	<br />
 	<label for="sit">Sit:</label>
-	<select id="sit" name="train__sit">
+	<select id="sit" name="sit">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>
@@ -45,7 +45,7 @@
 	</select>
 	<br />
 	<label for="stay">Stay:</label>
-	<select id="stay" name="train__stay">
+	<select id="stay" name="stay">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>
@@ -53,7 +53,7 @@
 	</select>
 	<br />
 	<label for="come">Come:</label>
-	<select id="come" name="train__come">
+	<select id="come" name="come">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>
@@ -61,7 +61,7 @@
 	</select>
 	<br />
 	<label for="heel">Heel:</label>
-	<select id="heel" name="train__heel">
+	<select id="heel" name="heel">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>
@@ -69,7 +69,7 @@
 	</select>
 	<br />
 	<label for="down">Down:</label>
-	<select id="down" name="train__down">
+	<select id="down" name="down">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>
@@ -77,7 +77,7 @@
 	</select>
 	<br />
 	<label for="socialised">Socialised:</label>
-	<select id="socialised" name="train__socialised">
+	<select id="socialised" name="socialised">
 		<option selected disbaled value=""></option>
 		<option value="Basic">Basic</option>
 		<option value="Intermediate">Intermediate</option>

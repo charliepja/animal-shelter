@@ -1,6 +1,5 @@
 require_relative('../../models/animal.rb')
 require_relative('../../models/owner.rb')
-require_relative('../../db/sql_runner.rb')
 
 get '/volunteer' do
 	erb(:"volunteers/home", :layout => :volunteer)
@@ -58,24 +57,17 @@ get '/volunteer/animal/:id/edit/training' do
 end
 
 # UPDATE
-post '/volunteer/animal/:id' do
+post '/volunteer/animal/:id/edit' do
 	pet_id = params[:animal_id].to_i()
 	@pet = Animal.find_by_id(pet_id)
+	@pet.update(params)
+	redirect "/volunteer/animal/#{pet_id}"
+end
 
-	params.each{|key, value|
-		if key.start_with?("pet")
-			if value.empty? == false && key != "animal_id"
-				key_array = key.split("__")
-				@pet.single_update(key_array[1], value)
-			end
-		elsif key.start_with?("train")
-			if value.empty? == false && key != "animal_id"
-				key_array = key.split("__")
-				@pet.update_single_train(key_array[1], value)
-			end
-		end
-	}
-
+post '/volunteer/animal/:id/edit/training' do
+	pet_id = params[:animal_id].to_i()
+	@pet = Animal.find_by_id(pet_id)
+	@pet.update_training(params)
 	redirect "/volunteer/animal/#{pet_id}"
 end
 
@@ -84,8 +76,6 @@ put '/volunteer/animal/:id/edit/adoption' do
 	@pet = Animal.find_by_id(pet_id)
 	update_key = params.keys()
 	update_values = params.values()
-	p update_key[2]
-	p update_values[2]
 	@pet.update_adopt(update_key[2], update_values[2])
 
 	redirect "/volunteer/animal/#{pet_id}/edit/adoption"

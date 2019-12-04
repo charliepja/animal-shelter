@@ -91,9 +91,14 @@ class Animal
 		SqlRunner.run(sql, values)
 	end
 
-	def update()
-		sql = "UPDATE animals SET (name, breed, trained, owner_id) = ($1, $2, $3, $4) WHERE animal_id = $5"
-		values = [@name, @breed, @trained, @owner_id, @animal_id]
+	def update(params)
+		params.each {|key, value|
+			if value.empty? == false && key != "animal_id"
+				single_update(key, value)
+			end
+		}
+		sql = "UPDATE animals SET (name, type, breed, microchip, trained, img_url, owner_id) = ($1, $2, $3, $4, $5, $6, $7) WHERE animal_id = $8"
+		values = [@name, @type, @breed, @microchip, @trained, @img_url, @owner_id, @animal_id]
 		SqlRunner.run(sql, values)
 	end
 
@@ -101,17 +106,22 @@ class Animal
 		case var
 		when "name"
 			@name = "#{val}"
+		when "type"
+			@type = "#{val}"
 		when "breed"
 			@breed = "#{val}"
+		when "microchip"
+			@microchip = val.to_i()
 		when "trained"
 			@trained = true if "#{val}" == "yes"
 			@trained = false if "#{val}" == "no"
+		when "img_url"
+			@img_url = "#{val}"
 		when "owner_id"
 			@owner_id = "#{val}".to_i()
 		else
 			return
 		end
-		update()
 	end
 
 	def delete()
@@ -186,28 +196,32 @@ class Animal
 		Training.find(@animal_id)
 	end
 
-	def update_single_train(var, val)
-		case var
-		when "toilet_trained"
-			update_training("toilet_trained", val)
-		when "sit"
-			update_training("sit", val)
-		when "stay"
-			update_training("stay", val)
-		when "come"
-			update_training("come", val)
-		when "heel"
-			update_training("heel", val)
-		when "down"
-			update_training("down", val)
-		when "socialised"
-			update_training("socialised", val)
-		else
-			return
-		end
+	def update_training(params)
+		params.each{|key, value|
+			if value.empty? == false && key != "animal_id"
+				case key
+				when "toilet_trained"
+					update_single_training("toilet_trained", value)
+				when "sit"
+					update_single_training("sit", value)
+				when "stay"
+					update_single_training("stay", value)
+				when "come"
+					update_single_training("come", value)
+				when "heel"
+					update_single_training("heel", value)
+				when "down"
+					update_single_training("down", value)
+				when "socialised"
+					update_single_training("socialised", value)
+				else
+					return
+				end
+			end
+		}
 	end
 
-	def update_training(set, value)
+	def update_single_training(set, value)
 		Training.update(@animal_id, set, value)
 	end
 

@@ -3,18 +3,18 @@
 <p>Trained: <%= @pet.trained%></p>
 <p>Admission Date: <%= @pet.admission_date%></p>
 
-<form action="/volunteer/animal/:id" method="POST">
+<form action="/volunteer/animal/:id/edit" method="POST">
 
 	<label for="animal_id">Animal ID:</label>
 
 	<input type="text" id="animal_id" name="animal_id" value= " <%= @pet.animal_id %> ">
 
 	<label for="name">Pet Name:</label>
-	<input type="text" id="name" name="pet__name">
+	<input type="text" id="name" name="name">
 	<br />
 	<br />
 	<label for="breed">Pet Breed:</label>
-	<input type="text" id="breed" name="pet__breed">
+	<input type="text" id="breed" name="breed">
 	<br />
 	<br />
 	<label for="trained">Pet Trained:</label>
@@ -26,7 +26,7 @@
 	<br />
 	<br />
 	<label for="owner">Owner:</label>
-	<input type="number" id="owner" name="pet__owner_id">
+	<input type="number" id="owner" name="owner_id">
 	<br />
 	<br />
 	<input type="submit" value="Update">
