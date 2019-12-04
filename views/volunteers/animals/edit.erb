@@ -2,19 +2,26 @@
 <p>Breed: <%= @pet.breed%></p>
 <p>Trained: <%= @pet.trained%></p>
 <p>Admission Date: <%= @pet.admission_date%></p>
-
+<br />
+<br />
 <form action="/volunteer/animal/:id/edit" method="POST">
 
-	<label for="animal_id">Animal ID:</label>
-
-	<input type="text" id="animal_id" name="animal_id" value= " <%= @pet.animal_id %> ">
+	<input type="hidden" name="animal_id" value= " <%= @pet.animal_id %> ">
 
 	<label for="name">Pet Name:</label>
 	<input type="text" id="name" name="name">
 	<br />
 	<br />
+	<label for="type">Pet Type:</label>
+	<input type="text" id="type" name="type">
+	<br />
+	<br />
 	<label for="breed">Pet Breed:</label>
 	<input type="text" id="breed" name="breed">
+	<br />
+	<br />
+	<label for="microchip">Pet Microchip:</label>
+	<input type="text" id="microchip" name="microchip">
 	<br />
 	<br />
 	<label for="trained">Pet Trained:</label>
@@ -23,6 +30,10 @@
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	</select>
+	<br />
+	<br />
+	<label for="img_url">Pet Image:</label>
+	<input type="text" id="img_url" name="img_url">
 	<br />
 	<br />
 	<label for="owner">Owner:</label>
