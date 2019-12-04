@@ -25,13 +25,13 @@ CREATE TABLE animals (
 
 CREATE TABLE training (
 	training_plan_id SERIAL PRIMARY KEY,
-	toilet_trained BOOLEAN DEFAULT false,
-	sit BOOLEAN DEFAULT false,
-	stay BOOLEAN DEFAULT false,
-	come BOOLEAN DEFAULT false,
-	heel BOOLEAN DEFAULT false,
-	down BOOLEAN DEFAULT false,
-	socialised BOOLEAN DEFAULT false,
+	toilet_trained VARCHAR DEFAULT 'Not Started',
+	sit VARCHAR DEFAULT 'Not Started',
+	stay VARCHAR DEFAULT 'Not Started',
+	come VARCHAR DEFAULT 'Not Started',
+	heel VARCHAR DEFAULT 'Not Started',
+	down VARCHAR DEFAULT 'Not Started',
+	socialised VARCHAR DEFAULT 'Not Started',
 	animal_id INT REFERENCES animals(animal_id) ON DELETE CASCADE
 );
 

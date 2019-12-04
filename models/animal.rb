@@ -187,31 +187,21 @@ class Animal
 	end
 
 	def update_single_train(var, val)
-		p var
-		p val
-		if val == 'yes'
-			b_val = true
-		elsif val == 'no'
-			b_val = false
-		else
-			return
-		end
-
 		case var
 		when "toilet_trained"
-			update_training("toilet_trained", b_val)
+			update_training("toilet_trained", val)
 		when "sit"
-			update_training("sit", b_val)
+			update_training("sit", val)
 		when "stay"
-			update_training("stay", b_val)
+			update_training("stay", val)
 		when "come"
-			update_training("come", b_val)
+			update_training("come", val)
 		when "heel"
-			update_training("heel", b_val)
+			update_training("heel", val)
 		when "down"
-			update_training("down", b_val)
+			update_training("down", val)
 		when "socialised"
-			update_training("socialised", b_val)
+			update_training("socialised", val)
 		else
 			return
 		end
