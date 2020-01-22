@@ -11,6 +11,9 @@ require_relative('./controllers/volunteer/animal_controller.rb')
 require_relative('./controllers/public/owner_controller.rb')
 require_relative('./controllers/volunteer/owner_controller.rb')
 
+
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+
 class App < Sinatra::Base
 	get '/' do
 
