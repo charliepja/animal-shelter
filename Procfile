@@ -1,1 +1,1 @@
-bundle exec rackup config.ru -p 9292
+web: bundle exec rackup config.ru -p 9292
