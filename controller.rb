@@ -1,4 +1,5 @@
 require('sinatra')
+require ('sinatra/activerecord')
 require('sinatra/contrib/all')
 require('pry')
 also_reload('./models/*')
