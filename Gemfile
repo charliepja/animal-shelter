@@ -5,5 +5,6 @@ gem 'sinatra'
 gem 'pg'
 gem 'rake'
 gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
 
 # gem "rails"
