@@ -1,4 +1,3 @@
-require('pry')
 require_relative('../models/animal.rb')
 require_relative('../models/owner.rb')
 
@@ -45,7 +44,3 @@ animal2 = Animal.new(animal2_details)
 
 animal1.save()
 animal2.save()
-
-binding.pry
-
-nil

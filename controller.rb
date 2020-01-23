@@ -1,18 +1,11 @@
 require('sinatra')
-require ('sinatra/activerecord')
-require('sinatra/contrib/all')
-require('pry')
-also_reload('./models/*')
-also_reload('./views/*')
-also_reload('./public/*')
+require('sinatra/contrib/all') if development?
 
 require_relative('./controllers/public/animal_controller.rb')
 require_relative('./controllers/volunteer/animal_controller.rb')
 require_relative('./controllers/public/owner_controller.rb')
 require_relative('./controllers/volunteer/owner_controller.rb')
 
-
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 class App < Sinatra::Base
 	get '/' do
