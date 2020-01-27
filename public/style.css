@@ -1,5 +1,6 @@
 body {
 	background-color: #41B3A3;
+	margin: 0;
 }
 
 nav {
@@ -37,9 +38,9 @@ a {
 	min-height: 100vh;
 }
 
-/* #content {
-	padding-bottom: 200px;
-} */
+#content {
+	padding-bottom: 20px;
+}
 
 #footer {
 	position: absolute;
