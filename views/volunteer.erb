@@ -8,28 +8,30 @@
 	<title>Animal Shelter: Volunteer</title>
 </head>
 <body>
-		<nav>
-			<ul class="nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/volunteer/animal/index">Animals</a></li>
-				<li><a href="/volunteer/owner/index">Current Owners</a></li>
-				<li><a href="/volunteer/owner/index/filter">Waiting List</a></li>
-			</ul>
-		</nav>
-
-			<main class="parent">
-				<%= yield %>
-			</main>
-
-		<div id="child">
-			<footer id="footer">
+		<div class="container">
+			<nav>
 				<ul class="nav">
-					<li><a href="/faq">FAQ</a></li>
-					<li><a href="/contact">Contact Us</a></li>
-					<li><a href="/donate">Donate</a></li>
-					<li><a href="/">Public View</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="/volunteer/animal/index">Animals</a></li>
+					<li><a href="/volunteer/owner/index">Current Owners</a></li>
+					<li><a href="/volunteer/owner/index/filter">Waiting List</a></li>
 				</ul>
-			</footer>
+			</nav>
+
+				<div class="content">
+					<main class="parent">
+						<%= yield %>
+					</main>
+				</div>
+
+				<footer class="footer">
+					<ul class="nav">
+						<li><a href="/faq">FAQ</a></li>
+						<li><a href="/contact">Contact Us</a></li>
+						<li><a href="/donate">Donate</a></li>
+						<li><a href="/">Public View</a></li>
+					</ul>
+				</footer>
 		</div>
 </body>
 </html>
