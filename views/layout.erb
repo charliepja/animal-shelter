@@ -8,6 +8,7 @@
 	<title>Animal Shelter</title>
 </head>
 <body>
+	<div id="container">
 		<nav>
 			<ul class="nav">
 				<li><a href="/">Home</a></li>
@@ -17,11 +18,12 @@
 			</ul>
 		</nav>
 
-		<main class="parent">
-			<%= yield %>
-		</main>
+		<div id="content">
+			<main class="parent">
+				<%= yield %>
+			</main>
+		</div>
 
-		<div id="child">
 			<footer id="footer">
 				<ul class="nav">
 					<li><a href="/faq">FAQ</a></li>
@@ -30,7 +32,7 @@
 					<li><a href="/volunteer">Volunteer Login</a></li>
 				</ul>
 			</footer>
-		</div>
+	</div>
 
 </body>
 </html>
